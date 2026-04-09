@@ -49,8 +49,7 @@ export default function SetupProfile() {
         setLoading(false)
         return
       }
-      const { data: urlData } = supabase.storage.from('avatars').getPublicUrl(filePath)
-      avatarUrl = urlData.publicUrl
+      avatarUrl = filePath
     }
 
     const { error: upsertError } = await supabase.from('profiles').upsert({
